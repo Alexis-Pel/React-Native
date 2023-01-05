@@ -1,6 +1,6 @@
-import React, {useState} from 'react';
+import React from 'react';
 import RegisterScreen from '../screens/RegisterScreen';
-import Dashboard from '../screens/Dashboard';
+import Dashboard from '../screens/dashboard/Dashboard';
 import DetailScreen from '../screens/Details/DetailScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -11,7 +11,6 @@ const Stack = createNativeStackNavigator();
 
 const RootNavigator = () => {
   const isLoggedIn = useSelector(s => s.logIn.isLoggedIn);
-  // const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <NavigationContainer>
