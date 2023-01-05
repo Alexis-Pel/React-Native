@@ -9,7 +9,10 @@ import {
   ScrollView,
 } from 'react-native';
 
-const DetailScreen = game_id => {
+const DetailScreen = ({route, navigation}) => {
+  const {id} = route.params;
+  console.log(id);
+
   const game_name = 'God Of War Ragnarok';
   const uri =
     'https://images.igdb.com/igdb/image/upload/t_screenshot_big/scd720.jpg';
