@@ -14,6 +14,7 @@ import {
 } from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import RegisterScreen from './RegisterScreen';
+import StorageHelper from '../helpers/StorageHelper'
 
 // Initialisation Navigator
 const Stack = createNativeStackNavigator();
