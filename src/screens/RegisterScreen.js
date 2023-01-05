@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+//import AsyncStorage from '@react-native-async-storage/async-storage';
 import {
   SafeAreaView,
   View,
@@ -19,6 +19,8 @@ import {
   Alert,
   ScrollView,
 } from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {actions as logInActions} from '../redux/reducers/logInReducer';
 
 // Register Successful
 const onPress = (firstName, lastName, password) =>
@@ -33,6 +35,10 @@ const onPress = (firstName, lastName, password) =>
  * @constructor
  */
 const RegisterScreen = () => {
+  // Redux states
+  // const isLoggedInRedux = useSelector(s => s.logIn.isLoggedIn);
+  const dispatch = useDispatch();
+
   //Definition of states
   const [firstname, setFirstname] = useState('');
   const [lastname, setLastname] = useState('');
@@ -71,6 +77,10 @@ const RegisterScreen = () => {
       onPress(firstname, lastname, password);
     }
   }, [passwordIsValid, confirmPasswordIsValid, firstname, lastname, password]);
+
+  const setLogin = useCallback(() => {
+    dispatch(logInActions.logIn());
+  }, [dispatch]);
 
   return (
     <SafeAreaView style={styles.screen}>

@@ -6,22 +6,15 @@
  * @flow strict-local
  */
 import React from 'react';
-import RegisterScreen from './screens/RegisterScreen';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Provider} from 'react-redux';
+import RootNavigator from './navigation/RootNavigator';
+import {store} from './redux/store';
 
-const Stack = createNativeStackNavigator();
 const App = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          options={{title: 'My profile', headerShown: false}}
-          name="Register"
-          component={RegisterScreen}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <RootNavigator />
+    </Provider>
   );
 };
 
