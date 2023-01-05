@@ -5,7 +5,7 @@ import {getDataForDashboard} from '../../apiTools/apiTools';
 
 import styles from './DashboardStyles';
 
-const Dashboard = () => {
+const Dashboard = navigation => {
   const [data, setData] = useState([]);
 
   const loadData = async () => {
@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   const renderItem = ({item}) => {
     console.log(item);
-    return <FlatListElement item={item} />;
+    return <FlatListElement item={item} navigation={navigation} />;
   };
 
   return (

@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
 
-const FlatListElement = ({item}) => {
+const FlatListElement = ({navigation, item}) => {
+  console.log({item});
+
+  const openDetailScreen = useCallback(() => {
+    navigation.navigation.navigate('DetailScreen', {id: item.id});
+  }, [navigation, item.id]);
+
   return (
     <View style={styles.item}>
-      <TouchableOpacity>
-        <Text>{item.id}</Text>
+      <TouchableOpacity onPress={openDetailScreen}>
+        <Text>{item.name}</Text>
       </TouchableOpacity>
     </View>
   );
