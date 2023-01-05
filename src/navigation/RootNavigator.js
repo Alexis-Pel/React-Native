@@ -4,7 +4,7 @@ import Dashboard from '../screens/Dashboard';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useSelector} from 'react-redux';
-import LoginScreen from '../screens/LoginScreen';
+import LoginScreen from '../screens/Login/LoginScreen';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,6 +33,11 @@ const RootNavigator = () => {
             options={{title: 'Register', headerShown: false}}
             name="Register"
             component={RegisterScreen}
+          />
+          <Stack.Screen
+            options={{title: 'Dashboard', headerShown: false}}
+            name="Dashboard"
+            component={Dashboard}
           />
         </Stack.Navigator>
       )}

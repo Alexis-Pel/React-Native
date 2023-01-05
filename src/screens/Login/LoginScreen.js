@@ -13,8 +13,8 @@ import {
   ScrollView,
 } from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import RegisterScreen from './RegisterScreen';
-import {getData} from '../helpers/StorageHelper'
+import {getData} from '../../helpers/StorageHelper'
+import styles from'./LoginStyles.js'
 
 // Initialisation Navigator
 const Stack = createNativeStackNavigator();
@@ -29,13 +29,21 @@ const LoginScreen = props => {
     const [password, setPassword] = useState('');
 
     // Check with password and login exist
-    const validateForm = useCallback(() => {
-        user = getData('user')
-        console.log(user)
+    const validateForm = useCallback(async () => {
+        user = await getData('user')
+
         if (pseudo === user.username && password === user.password ){
-            navigation.navigate('Register');
+            navigation.navigate('Dashboard');
         }else{
-            Alert.alert('Mot de passe ou pseudo invalide')
+            if (pseudo === user.username){
+                Alert.alert('Mot de passe invalide')
+            }else{
+                if (password === user.password){
+                    Alert.alert('Pseudo invalide')
+                }else{
+                    Alert.alert('Il manque un mot de passe ou un pseudo')
+                }
+            }
         }
     },[pseudo,password]);
 
@@ -45,35 +53,33 @@ const LoginScreen = props => {
 
     // Display LoginScreen page <Stack.Screen name="Home" component={HomeScreen}/>
     return (
-        <SafeAreaView>
-            <Stack.Navigator>
-                <Stack.Screen options={{title: 'Register', headerShown: false}} name="Register" component={RegisterScreen}/>
-            </Stack.Navigator>
-            <ScrollView>
+        <SafeAreaView style={styles.screen} >
+            <ScrollView style={styles.scrollView}>
+                <View style={styles.scrollViewInputs}>
                 <TextInput
+                    style={styles.inputText}
                     placeholder="Pseudo"
                     value={pseudo}
                     onChangeText={setPseudo}
                 />
                 <TextInput
+                    style={styles.inputText}
                     placeholder="Mot de passe"
                     value={password}
                     onChangeText={setPassword}
                 />
-                <Fragment>
-                    <TouchableOpacity onPress={validateForm}>
-                        <Text>Connexion</Text>
+                </View>
+                <View style={styles.fragment}>
+                    <TouchableOpacity onPress={validateForm} style={styles.sendStyle}>
+                        <Text style={styles.buttonText}>Connexion</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity onPress={registerIsValide}>
-                        <Text>Inscription</Text>
+                    <TouchableOpacity onPress={registerIsValide} style={styles.sendStyle}>
+                        <Text style={styles.buttonText}>Inscription</Text>
                     </TouchableOpacity>
-                </Fragment>
+                </View>
             </ScrollView>
         </SafeAreaView>
       );
 };
 
-const styles = StyleSheet.create({
-
-});
 export default LoginScreen;
