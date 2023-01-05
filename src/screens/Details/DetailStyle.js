@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
   gamePicture: {
     marginBottom: 25,
     backgroundColor: 'blue',
-    width: 'cover',
+    width: '100 %',
     resizeMode: 'cover',
     height: 200,
   },
