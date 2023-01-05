@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-// import AsyncStorage from '@react-native-async-storage/async-storage';
+import {storeData} from '../helpers/StorageHelper';
 import {
   SafeAreaView,
   View,
@@ -25,13 +25,17 @@ const onPress = (firstName, lastName, password) =>
   Alert.alert(
     'Inscription effectuée',
     `Bonjour ${firstName} ${lastName}, votre mot de passe est ${password}`,
-    {text: 'OK', onPress: () => console.log('OK Pressed')},
+    {
+      text: 'OK',
+    },
   );
+
 /**
  * Register Screen Component
  * @returns {JSX.Element}
  * @constructor
  */
+
 const RegisterScreen = () => {
   //Definition of states
   const [firstname, setFirstname] = useState('');
@@ -61,14 +65,22 @@ const RegisterScreen = () => {
   }, [confirmPassword, password, passwordIsValid]);
 
   // Form validation callback
-  const validateForm = useCallback(() => {
+  const validateForm = useCallback(async () => {
     if (
       passwordIsValid &&
       confirmPasswordIsValid &&
       firstname.length > 1 &&
       lastname.length > 1
     ) {
-      onPress(firstname, lastname, password);
+      await storeData(
+        {
+          firstname: firstname,
+          lastname: lastname,
+          password: password,
+        },
+        'user',
+      ),
+        onPress(firstname, lastname, password);
     }
   }, [passwordIsValid, confirmPasswordIsValid, firstname, lastname, password]);
 
@@ -87,20 +99,24 @@ const RegisterScreen = () => {
 
       <ScrollView style={{flex: 1, alignSelf: 'center'}}>
         <TextInput
-          style={styles.inputText}
+          style={[styles.inputText, styles.IsValid]}
           placeholder="Prénom"
           value={firstname}
           //onEndEditing={setFirstname}
           onChangeText={setFirstname}
         />
         <TextInput
-          style={styles.inputText}
+          style={[styles.inputText, styles.IsValid]}
           placeholder="Nom"
           value={lastname}
           onChangeText={setLastname}
         />
         <TextInput
-          style={passwordIsValid ? styles.inputText : styles.passwordIsNotValid}
+          style={
+            passwordIsValid
+              ? [styles.inputText, styles.IsValid]
+              : [styles.inputText, styles.passwordIsNotValid]
+          }
           secureTextEntry={true}
           placeholder="Mot de passe"
           value={password}
@@ -109,8 +125,8 @@ const RegisterScreen = () => {
         <TextInput
           style={
             confirmPasswordIsValid
-              ? styles.inputText
-              : styles.passwordIsNotValid
+              ? [styles.inputText, styles.IsValid]
+              : [styles.inputText, styles.passwordIsNotValid]
           }
           secureTextEntry={true}
           placeholder="Confirmation du mot de passe"
@@ -118,11 +134,9 @@ const RegisterScreen = () => {
           onChangeText={setConfirmPassword}
         />
 
-        <View style={{alignSelf: 'center', marginTop: 20}}>
-          <TouchableOpacity style={styles.sendStyle} onPress={validateForm}>
-            <Text style={{color: 'darkgray'}}>Envoyer</Text>
-          </TouchableOpacity>
-        </View>
+        <TouchableOpacity style={styles.sendStyle} onPress={validateForm}>
+          <Text style={{color: 'white', fontWeight: 'bold'}}>Envoyer</Text>
+        </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>
   );
@@ -131,39 +145,43 @@ const RegisterScreen = () => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: 'fff',
   },
-  passwordIsValid: {},
+  IsValid: {
+    borderColor: 'darkgray',
+  },
   passwordIsNotValid: {
-    backgroundColor: 'gainsboro',
-    paddingStart: 15,
-    height: 50,
-    width: 350,
-    borderRadius: 5,
-    borderWidth: 1,
-    marginTop: 35,
     borderColor: 'red',
   },
   sendStyle: {
-    borderColor: 'darkgray',
+    alignSelf: 'center',
+    marginTop: 50,
+    marginBottom: 50,
+    borderColor: 'rgba(255, 164, 32, 1.0)',
     borderWidth: 1,
     borderRadius: 40,
     width: 200,
     height: 50,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: 'rgba(255, 164, 32, 1.0)',
+    shadowOffset: {width: 5, height: 5},
+    shadowColor: 'black',
+    shadowOpacity: 0.2,
+    elevation: 3,
   },
   inputText: {
     backgroundColor: 'gainsboro',
     paddingStart: 15,
     height: 50,
-    width: 350,
+    width: 300,
     borderRadius: 5,
     borderWidth: 1,
-    marginTop: 35,
-    borderColor: 'darkgray',
+    marginTop: 30,
   },
   profilePicture: {
-    marginTop: 20,
+    marginTop: 25,
+    marginBottom: 30,
     alignSelf: 'center',
     width: 120,
     height: 120,
