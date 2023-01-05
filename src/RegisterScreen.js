@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import {getData, storeData} from '../StorageHelper';
 import {
   SafeAreaView,
   View,
@@ -25,13 +25,17 @@ const onPress = (firstName, lastName, password) =>
   Alert.alert(
     'Inscription effectuée',
     `Bonjour ${firstName} ${lastName}, votre mot de passe est ${password}`,
-    {text: 'OK', onPress: () => console.log('OK Pressed')},
+    {
+      text: 'OK',
+    },
   );
+
 /**
  * Register Screen Component
  * @returns {JSX.Element}
  * @constructor
  */
+
 const RegisterScreen = () => {
   //Definition of states
   const [firstname, setFirstname] = useState('');
@@ -61,14 +65,22 @@ const RegisterScreen = () => {
   }, [confirmPassword, password, passwordIsValid]);
 
   // Form validation callback
-  const validateForm = useCallback(() => {
+  const validateForm = useCallback(async () => {
     if (
       passwordIsValid &&
       confirmPasswordIsValid &&
       firstname.length > 1 &&
       lastname.length > 1
     ) {
-      onPress(firstname, lastname, password);
+      await storeData(
+        {
+          firstname: firstname,
+          lastname: lastname,
+          password: password,
+        },
+        'user',
+      ),
+        onPress(firstname, lastname, password);
     }
   }, [passwordIsValid, confirmPasswordIsValid, firstname, lastname, password]);
 
@@ -84,6 +96,10 @@ const RegisterScreen = () => {
           uri: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F5%2FProfile-Avatar-PNG.png&f=1&nofb=1&ipt=54410382c540772fe9f2500d35d85ff329758c284d9ae3ec37f33edd083c4233&ipo=images',
         }}
       />
+      <TouchableOpacity
+        onPress={async () => console.log(await getData('user'))}>
+        <Text>GETDATA</Text>
+      </TouchableOpacity>
 
       <ScrollView style={{flex: 1, alignSelf: 'center'}}>
         <TextInput
