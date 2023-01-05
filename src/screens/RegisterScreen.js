@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {getData, storeData} from '../StorageHelper';
+import {storeData} from '../helpers/StorageHelper';
 import {
   SafeAreaView,
   View,
@@ -96,10 +96,6 @@ const RegisterScreen = () => {
           uri: 'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F5%2FProfile-Avatar-PNG.png&f=1&nofb=1&ipt=54410382c540772fe9f2500d35d85ff329758c284d9ae3ec37f33edd083c4233&ipo=images',
         }}
       />
-      <TouchableOpacity
-        onPress={async () => console.log(await getData('user'))}>
-        <Text>GETDATA</Text>
-      </TouchableOpacity>
 
       <ScrollView style={{flex: 1, alignSelf: 'center'}}>
         <TextInput
