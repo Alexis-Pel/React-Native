@@ -31,7 +31,7 @@ const RootNavigator = () => {
             component={LoginScreen}
           />
           <Stack.Screen
-            options={{title: 'Register', headerShown: false}}
+            options={{title: '', headerShown: true}}
             name="Register"
             component={RegisterScreen}
           />
