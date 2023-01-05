@@ -38,8 +38,7 @@ const onPress = (firstName, lastName, password) =>
 
 const RegisterScreen = () => {
   //Definition of states
-  const [firstname, setFirstname] = useState('');
-  const [lastname, setLastname] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordIsValid, setPasswordIsValid] = useState(true);
@@ -66,23 +65,17 @@ const RegisterScreen = () => {
 
   // Form validation callback
   const validateForm = useCallback(async () => {
-    if (
-      passwordIsValid &&
-      confirmPasswordIsValid &&
-      firstname.length > 1 &&
-      lastname.length > 1
-    ) {
+    if (passwordIsValid && confirmPasswordIsValid && username.length > 1) {
       await storeData(
         {
-          firstname: firstname,
-          lastname: lastname,
+          username: username,
           password: password,
         },
         'user',
       ),
-        onPress(firstname, lastname, password);
+        onPress(username, password);
     }
-  }, [passwordIsValid, confirmPasswordIsValid, firstname, lastname, password]);
+  }, [passwordIsValid, confirmPasswordIsValid, username, password]);
 
   return (
     <SafeAreaView style={styles.screen}>
@@ -100,16 +93,9 @@ const RegisterScreen = () => {
       <ScrollView style={{flex: 1, alignSelf: 'center'}}>
         <TextInput
           style={[styles.inputText, styles.IsValid]}
-          placeholder="Prénom"
-          value={firstname}
-          //onEndEditing={setFirstname}
-          onChangeText={setFirstname}
-        />
-        <TextInput
-          style={[styles.inputText, styles.IsValid]}
-          placeholder="Nom"
-          value={lastname}
-          onChangeText={setLastname}
+          placeholder="Nom d'utilisateur"
+          value={username}
+          onChangeText={setUsername}
         />
         <TextInput
           style={
