@@ -19,6 +19,8 @@ import {
   Alert,
   ScrollView,
 } from 'react-native';
+import {useDispatch, useSelector} from 'react-redux';
+import {actions as logInActions} from '../redux/reducers/logInReducer';
 
 // Register Successful
 const onPress = (firstName, lastName, password) =>
@@ -37,6 +39,10 @@ const onPress = (firstName, lastName, password) =>
  */
 
 const RegisterScreen = () => {
+  // Redux states
+  // const isLoggedInRedux = useSelector(s => s.logIn.isLoggedIn);
+  const dispatch = useDispatch();
+
   //Definition of states
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -76,6 +82,10 @@ const RegisterScreen = () => {
         onPress(username, password);
     }
   }, [passwordIsValid, confirmPasswordIsValid, username, password]);
+
+  const setLogin = useCallback(() => {
+    dispatch(logInActions.logIn());
+  }, [dispatch]);
 
   return (
     <SafeAreaView style={styles.screen}>

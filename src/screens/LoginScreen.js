@@ -14,7 +14,7 @@ import {
 } from 'react-native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import RegisterScreen from './RegisterScreen';
-import StorageHelper from '../helpers/StorageHelper'
+import {getData} from '../helpers/StorageHelper'
 
 // Initialisation Navigator
 const Stack = createNativeStackNavigator();
@@ -30,7 +30,9 @@ const LoginScreen = props => {
 
     // Check with password and login exist
     const validateForm = useCallback(() => {
-        if (pseudo === 'Alexis' && password === '1234' ){
+        user = getData('user')
+        console.log(user)
+        if (pseudo === user.username && password === user.password ){
             navigation.navigate('Register');
         }else{
             Alert.alert('Mot de passe ou pseudo invalide')
