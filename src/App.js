@@ -6,8 +6,7 @@
  * @flow strict-local
  */
 import React from 'react';
-import {SafeAreaView, View, StyleSheet, Button} from 'react-native';
-import RegisterScreen from './src/RegisterScreen';
+import RegisterScreen from './screens/RegisterScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
@@ -25,7 +24,5 @@ const App = () => {
     </NavigationContainer>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default App;
