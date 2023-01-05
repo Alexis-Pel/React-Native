@@ -21,6 +21,11 @@ const RootNavigator = () => {
             name="Dashboard"
             component={Dashboard}
           />
+          <Stack.Screen
+            options={{title: 'DetailScreen', headerShown: false}}
+            name="DetailScreen"
+            component={DetailScreen}
+          />
         </Stack.Navigator>
       ) : (
         <Stack.Navigator>
