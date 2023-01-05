@@ -21,14 +21,10 @@ import {useDispatch} from 'react-redux';
 import {actions as logInActions} from '../redux/reducers/logInReducer';
 
 // Register Successful
-const onPress = (firstName, lastName, password) =>
-  Alert.alert(
-    'Inscription effectuée',
-    `Bonjour ${firstName} ${lastName}, votre mot de passe est ${password}`,
-    {
-      text: 'OK',
-    },
-  );
+const onPress = username =>
+  Alert.alert('Inscription effectuée', `Bienvenue, ${username}`, {
+    text: 'OK',
+  });
 
 /**
  * Register Screen Component
@@ -77,7 +73,7 @@ const RegisterScreen = () => {
         },
         'user',
       ),
-        onPress(username, password);
+        onPress(username);
     }
   }, [passwordIsValid, confirmPasswordIsValid, username, password]);
 
