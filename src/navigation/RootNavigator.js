@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import RegisterScreen from '../screens/RegisterScreen';
 import Dashboard from '../screens/Dashboard';
+import DetailScreen from '../screens/Details/DetailScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {useSelector} from 'react-redux';
@@ -24,9 +25,9 @@ const RootNavigator = () => {
       ) : (
         <Stack.Navigator>
           <Stack.Screen
-            options={{title: 'My profile', headerShown: false}}
+            options={{title: '', headerShown: true}}
             name="Register"
-            component={RegisterScreen}
+            component={DetailScreen}
           />
         </Stack.Navigator>
       )}
