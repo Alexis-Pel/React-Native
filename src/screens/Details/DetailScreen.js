@@ -32,43 +32,18 @@ const DetailScreen = ({route, navigation}) => {
           }}
           blurRadius={10}
         />
-        <View style={{flexDirection: 'row', zIndex: 10, marginTop: -100}}>
+        <View style={styles.titleView}>
           <Image style={styles.coverPicture} source={{uri: uri_cover}} />
-          <View style={{flexDirection: 'column', alignItems: 'center'}}>
+          <View style={styles.title}>
             <Text style={styles.gameTitle}>{game_name}</Text>
-            <View
-              style={{
-                alignSelf: 'center',
-                backgroundColor: 'white',
-                borderRadius: 5,
-                borderWidth: 1,
-                borderColor: 'red',
-                width: '80 %',
-                height: 50,
-                justifyContent: 'center',
-                alignItems: 'center',
-                marginTop: 80,
-              }}>
-              <Text
-                style={{
-                  fontWeight: '800',
-                  color: 'rgb(255,0,113)',
-                }}>
-                {total_rating} / 100
-              </Text>
-              <Text
-                style={{
-                  fontWeight: '800',
-                  fontSize: 10,
-                  color: 'rgb(255,0,113)',
-                }}>
-                {total_rating_count} votes
-              </Text>
+            <View style={styles.scoreView}>
+              <Text style={styles.ratingText}>{total_rating} / 100</Text>
+              <Text style={styles.votesText}>{total_rating_count} votes</Text>
             </View>
           </View>
         </View>
-        <View style={{margin: 10}}>
-          <Text style={{fontWeight: '500', fontSize: 18}}>Synopsis: </Text>
+        <View style={styles.summaryView}>
+          <Text style={styles.summaryText}>Synopsis: </Text>
           <Text style={styles.summary}>{summary}</Text>
         </View>
       </ScrollView>

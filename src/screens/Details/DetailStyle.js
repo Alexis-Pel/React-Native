@@ -12,6 +12,7 @@ const styles = StyleSheet.create({
     fontWeight: '800',
     fontSize: 21,
   },
+
   gamePicture: {
     marginBottom: 25,
     backgroundColor: 'blue',
@@ -19,6 +20,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
     height: 200,
   },
+
   coverPicture: {
     marginBottom: 25,
     backgroundColor: 'blue',
@@ -27,8 +29,53 @@ const styles = StyleSheet.create({
     height: 200,
     borderRadius: 8,
   },
+
   summary: {
     margin: 10,
+  },
+
+  titleView: {
+    flexDirection: 'row',
+    zIndex: 10,
+    marginTop: -100,
+  },
+
+  title: {
+    flexDirection: 'column',
+    alignItems: 'center',
+  },
+
+  scoreView: {
+    alignSelf: 'center',
+    backgroundColor: 'white',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: 'red',
+    width: '80 %',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 80,
+  },
+
+  ratingText: {
+    fontWeight: '800',
+    color: 'rgb(255,0,113)',
+  },
+
+  votesText: {
+    fontWeight: '800',
+    fontSize: 10,
+    color: 'rgb(255,0,113)',
+  },
+
+  summaryView: {
+    margin: 10,
+  },
+
+  summaryText: {
+    fontWeight: '500',
+    fontSize: 18,
   },
 });
 
