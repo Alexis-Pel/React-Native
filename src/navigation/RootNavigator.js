@@ -1,6 +1,7 @@
 import React from 'react';
 import RegisterScreen from '../screens/Register/RegisterScreen';
 import Dashboard from '../screens/dashboard/Dashboard';
+import ProfilScreen from '../screens/Profil/ProfilScreen';
 import DetailScreen from '../screens/Details/DetailScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -25,6 +26,11 @@ const RootNavigator = () => {
             options={{title: 'DetailScreen', headerShown: false}}
             name="DetailScreen"
             component={DetailScreen}
+          />
+          <Stack.Screen
+            options={{title: 'ProfilScreen', headerShown: false}}
+            name="ProfilScreen"
+            component={ProfilScreen}
           />
         </Stack.Navigator>
       ) : (

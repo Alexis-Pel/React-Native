@@ -18,12 +18,12 @@ const storeData = async (value, key) => {
   }
 };
 
-const deleteStorage = async key =>{
+const deleteStorage = async key => {
   try {
     await AsyncStorage.removeItem(key);
-  } catch (e){
+  } catch (e) {
     console.log(e);
   }
-}
+};
 
 export {getData, storeData, deleteStorage};
