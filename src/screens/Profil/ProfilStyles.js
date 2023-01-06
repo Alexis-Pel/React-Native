@@ -45,12 +45,15 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   buttonHideShow: {
-    backgroundColor: 'gainsboro',
     paddingStart: 15,
-    borderRadius: 5,
-    borderWidth: 1,
+    fontSize: 20,
     marginTop: 30,
-    fontSize: 24,
+    marginRight: 20,
+  },
+
+  touchableEye: {
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   inputText: {

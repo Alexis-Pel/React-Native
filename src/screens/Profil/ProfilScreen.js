@@ -60,7 +60,9 @@ const ProfilScreen = navigation => {
           <Text style={styles.inputText}>
             {isHide ? password.replace(/./g, '*') : password}
           </Text>
-          <TouchableOpacity onPress={hideAndShowPassword}>
+          <TouchableOpacity
+            style={styles.touchableEye}
+            onPress={hideAndShowPassword}>
             <Text style={styles.buttonHideShow}>👁️</Text>
           </TouchableOpacity>
         </View>

@@ -1,15 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import styles from './DetailStyle';
-import {
-  SafeAreaView,
-  View,
-  StyleSheet,
-  Text,
-  Image,
-  ScrollView,
-} from 'react-native';
+import {SafeAreaView, View, Text, Image, ScrollView} from 'react-native';
 import {getDataForDetail} from '../../apiTools/apiTools';
-import {getData, storeData} from '../../helpers/StorageHelper';
 import StarRating from '../../components/StarRating';
 
 const DetailScreen = ({navigation, route}) => {

@@ -30,7 +30,6 @@ const Dashboard = navigation => {
   }, []);
 
   const renderItem = ({item}) => {
-    console.log(item);
     return <FlatListElement item={item} navigation={navigation} />;
   };
 

@@ -1,11 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  SafeAreaView,
-  TouchableOpacity,
-} from 'react-native';
+import {StyleSheet, View, SafeAreaView} from 'react-native';
 import {Rating} from 'react-native-ratings';
 import {getData, storeData} from '../helpers/StorageHelper';
 const StarRating = props => {
@@ -23,6 +17,7 @@ const StarRating = props => {
 
   useEffect(() => {
     getstarDict().then(r => starItem(r));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function starItem(dict) {
