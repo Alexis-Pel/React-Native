@@ -2,9 +2,18 @@ import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
   itemView: {
-    backgroundColor: '#B27176',
-    margin: 15,
+    backgroundColor: '#8C8C8C',
+    margin: 10,
     padding: 20,
+    borderRadius: 10,
+  },
+
+  touchableView: {},
+
+  titleText: {
+    fontWeight: 'bold',
+    fontSize: 16,
+    color: 'white',
   },
 });
 
