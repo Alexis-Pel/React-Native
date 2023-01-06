@@ -9,21 +9,17 @@ import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {storeData} from '../../helpers/StorageHelper';
 import {
   SafeAreaView,
-  View,
-  StyleSheet,
   Text,
   Image,
   TextInput,
   TouchableOpacity,
-  KeyboardAvoidingView,
   Alert,
   ScrollView,
 } from 'react-native';
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {actions as logInActions} from '../../redux/reducers/logInReducer';
-import styles from './RegisterStyles'
+import styles from './RegisterStyles';
 import ImagePicker from 'react-native-image-crop-picker';
-import { file } from '@babel/types';
 
 // Register Successful
 const onPress = username =>
@@ -47,15 +43,17 @@ const RegisterScreen = () => {
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [passwordIsValid, setPasswordIsValid] = useState(true);
-  const [image, setImage] = useState('https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F5%2FProfile-Avatar-PNG.png&f=1&nofb=1&ipt=54410382c540772fe9f2500d35d85ff329758c284d9ae3ec37f33edd083c4233&ipo=images');
+  const [image, setImage] = useState(
+    'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F5%2FProfile-Avatar-PNG.png&f=1&nofb=1&ipt=54410382c540772fe9f2500d35d85ff329758c284d9ae3ec37f33edd083c4233&ipo=images',
+  );
   let firstlaunch = true;
 
-  function upload(image){
-    setImage(image.sourceURL)
+  function upload(image) {
+    setImage(image.sourceURL);
   }
-  
-  function handleError(e){
-    console.log(e)
+
+  function handleError(e) {
+    console.log(e);
   }
 
   const onPressImg = useCallback(() => {
@@ -65,10 +63,8 @@ const RegisterScreen = () => {
       cropping: true,
       includeBase64: true,
     };
-    ImagePicker.openPicker(options)
-    .then(upload)
-    .catch(handleError);
-  });
+    ImagePicker.openPicker(options).then(upload).catch(handleError);
+  }, []);
 
   // password Validation
   useEffect(() => {
