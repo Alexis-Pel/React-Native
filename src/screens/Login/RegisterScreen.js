@@ -6,7 +6,7 @@
  * @flow strict-local
  */
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
-import {storeData} from '../helpers/StorageHelper';
+import {storeData} from '../../helpers/StorageHelper';
 import {
   SafeAreaView,
   StyleSheet,
@@ -18,7 +18,7 @@ import {
   ScrollView,
 } from 'react-native';
 import {useDispatch} from 'react-redux';
-import {actions as logInActions} from '../redux/reducers/logInReducer';
+import {actions as logInActions} from '../../redux/reducers/logInReducer';
 
 // Register Successful
 const onPress = username =>
