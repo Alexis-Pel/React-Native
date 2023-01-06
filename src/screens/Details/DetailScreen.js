@@ -9,6 +9,8 @@ import {
   ScrollView,
 } from 'react-native';
 import {getDataForDetail} from '../../apiTools/apiTools';
+import {getData, storeData} from '../../helpers/StorageHelper';
+import StarRating from '../../components/StarRating';
 
 const DetailScreen = ({navigation, route}) => {
   const {id} = route.params;
@@ -85,9 +87,10 @@ const DetailScreen = ({navigation, route}) => {
             </View>
           </View>
           <View style={{margin: 10}}>
-            <Text style={{fontWeight: '500', fontSize: 18}}>Synopsis: </Text>
+            <Text style={{fontWeight: '600', fontSize: 18}}>Synopsis: </Text>
             <Text style={styles.summary}>{game.summary}</Text>
           </View>
+          <StarRating game_id={id} />
         </ScrollView>
       </SafeAreaView>
     );
