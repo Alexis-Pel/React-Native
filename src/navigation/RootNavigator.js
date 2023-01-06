@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterScreen from '../screens/RegisterScreen';
+import RegisterScreen from '../screens/Register/RegisterScreen';
 import Dashboard from '../screens/dashboard/Dashboard';
 import DetailScreen from '../screens/Details/DetailScreen';
 import {NavigationContainer} from '@react-navigation/native';
@@ -38,11 +38,6 @@ const RootNavigator = () => {
             options={{title: '', headerShown: true}}
             name="Register"
             component={RegisterScreen}
-          />
-          <Stack.Screen
-            options={{title: 'Dashboard', headerShown: false}}
-            name="Dashboard"
-            component={Dashboard}
           />
         </Stack.Navigator>
       )}
