@@ -43,6 +43,7 @@ const styles = StyleSheet.create({
     margin: 10,
     borderRadius: 7,
     color: 'white',
+    paddingLeft: 10,
   },
 
   searchOpacity: {
