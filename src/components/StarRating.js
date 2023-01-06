@@ -8,8 +8,6 @@ import {
 } from 'react-native';
 import {Rating} from 'react-native-ratings';
 import {getData, storeData} from '../helpers/StorageHelper';
-import star from 'react-native-ratings/src/components/Star';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 const StarRating = props => {
   const [starRating, setStarRating] = useState(false);
   const [value, setValue] = useState(0);
