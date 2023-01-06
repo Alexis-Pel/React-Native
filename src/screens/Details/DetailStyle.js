@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: 'fff',
+    backgroundColor: 'white',
   },
 
   gameTitle: {
@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '800',
     fontSize: 21,
+    height: 100,
+    width: 200,
+    marginLeft: 23,
   },
 
   gamePicture: {
@@ -32,6 +35,8 @@ const styles = StyleSheet.create({
 
   summary: {
     margin: 10,
+    textAlign: 'justify',
+    fontSize: 11,
   },
 
   titleView: {

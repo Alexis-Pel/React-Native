@@ -3,8 +3,6 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import styles from './FlatListElementStyles';
 
 const FlatListElement = ({navigation, item}) => {
-  console.log({item});
-
   const openDetailScreen = useCallback(() => {
     navigation.navigation.navigate('DetailScreen', {id: item.id});
   }, [navigation, item.id]);
