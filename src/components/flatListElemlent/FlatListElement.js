@@ -11,8 +11,8 @@ const FlatListElement = ({navigation, item}) => {
 
   return (
     <View style={styles.itemView}>
-      <TouchableOpacity onPress={openDetailScreen}>
-        <Text>{item.name}</Text>
+      <TouchableOpacity style={styles.touchableView} onPress={openDetailScreen}>
+        <Text style={styles.titleText}>{item.name}</Text>
       </TouchableOpacity>
     </View>
   );
