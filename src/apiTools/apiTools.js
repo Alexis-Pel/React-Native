@@ -8,7 +8,7 @@ export const getDataForDashboard = async () => {
       'Client-ID': '74bzvz25vgfsf8bgelf9t6tm53ca0w',
       Authorization: 'Bearer xkfzc7ravxrg5x6zd686x55i19u8yj',
     },
-    data: 'fields cover,first_release_date,name;',
+    data: 'fields cover,first_release_date,name; where screenshots != null & total_rating != null & cover != null & total_rating_count > 0;',
   });
 
   return res.data;

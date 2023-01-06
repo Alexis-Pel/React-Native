@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
     color: 'white',
     fontWeight: '800',
     fontSize: 21,
+    height: 100,
+    width: 200,
+    marginLeft: 23,
   },
   gamePicture: {
     marginBottom: 25,
