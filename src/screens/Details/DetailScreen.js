@@ -1,13 +1,6 @@
 import React from 'react';
 import styles from './DetailStyle';
-import {
-  SafeAreaView,
-  View,
-  StyleSheet,
-  Text,
-  Image,
-  ScrollView,
-} from 'react-native';
+import {SafeAreaView, View, Text, Image, ScrollView} from 'react-native';
 
 const DetailScreen = ({route, navigation}) => {
   const {id} = route.params;
@@ -22,6 +15,7 @@ const DetailScreen = ({route, navigation}) => {
   const total_rating_count = 578;
   const uri_cover =
     'https://images.igdb.com/igdb/image/upload/t_cover_big/co5s5v.png';
+
   return (
     <SafeAreaView style={styles.screen}>
       <ScrollView>
