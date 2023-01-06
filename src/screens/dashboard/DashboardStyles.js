@@ -7,16 +7,27 @@ const styles = StyleSheet.create({
   },
 
   titleView: {
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
-    marginTop: 10,
-    marginBottom: 10,
+    flexDirection: 'row',
+    margin: 10,
+  },
+
+  profilText: {
+    color: 'white',
+  },
+
+  titleOpacity: {
+    backgroundColor: '#981EF7',
+    padding: 10,
+    borderRadius: 50,
   },
 
   mainTitle: {
-    fontSize: 18,
+    fontSize: 22,
     fontWeight: 'bold',
     color: '#FE0353',
+    marginLeft: 50,
   },
 
   searchView: {

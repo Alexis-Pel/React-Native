@@ -1,4 +1,4 @@
-import {useEffect, useState, useMemo} from 'react';
+import {useEffect, useState} from 'react';
 import React, {
   FlatList,
   Alert,
@@ -27,7 +27,6 @@ const Dashboard = navigation => {
 
   useEffect(() => {
     loadData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const renderItem = ({item}) => {
@@ -55,10 +54,18 @@ const Dashboard = navigation => {
   return (
     <SafeAreaView style={styles.mainSafeArea}>
       <View style={styles.titleView}>
-        <Text style={styles.mainTitle}>Dashboard</Text>
+        <Text style={styles.mainTitle}>Gamepedia</Text>
+        <TouchableOpacity style={styles.titleOpacity} onPress={dataFilter}>
+          <Text style={styles.profilText}>Profil</Text>
+        </TouchableOpacity>
       </View>
       <View style={styles.searchView}>
-        <TextInput style={styles.searchTextInput} onChangeText={setSearch} />
+        <TextInput
+          placeholderTextColor="white"
+          placeholder="Search a game!"
+          style={styles.searchTextInput}
+          onChangeText={setSearch}
+        />
         <TouchableOpacity style={styles.searchOpacity} onPress={dataFilter}>
           <Text style={styles.touchableText}>Search</Text>
         </TouchableOpacity>

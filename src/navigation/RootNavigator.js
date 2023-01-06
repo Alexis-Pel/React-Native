@@ -1,5 +1,5 @@
 import React from 'react';
-import RegisterScreen from '../screens/Login/RegisterScreen';
+import RegisterScreen from '../screens/Register/RegisterScreen';
 import Dashboard from '../screens/dashboard/Dashboard';
 import DetailScreen from '../screens/Details/DetailScreen';
 import {NavigationContainer} from '@react-navigation/native';
