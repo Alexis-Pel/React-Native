@@ -39,11 +39,6 @@ const RootNavigator = () => {
             name="Register"
             component={RegisterScreen}
           />
-          <Stack.Screen
-            options={{title: 'Dashboard', headerShown: false}}
-            name="Dashboard"
-            component={Dashboard}
-          />
         </Stack.Navigator>
       )}
     </NavigationContainer>

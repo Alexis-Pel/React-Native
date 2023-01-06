@@ -1,5 +1,6 @@
 import React, {useCallback} from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import {View, Text, TouchableOpacity} from 'react-native';
+import styles from './FlatListElementStyles';
 
 const FlatListElement = ({navigation, item}) => {
   console.log({item});
@@ -9,20 +10,12 @@ const FlatListElement = ({navigation, item}) => {
   }, [navigation, item.id]);
 
   return (
-    <View style={styles.item}>
+    <View style={styles.itemView}>
       <TouchableOpacity onPress={openDetailScreen}>
         <Text>{item.name}</Text>
       </TouchableOpacity>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  item: {
-    backgroundColor: '#B27176',
-    margin: 15,
-    padding: 20,
-  },
-});
 
 export default FlatListElement;
