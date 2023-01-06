@@ -13,8 +13,8 @@ import {
 import styles from './ProfilStyles.js';
 
 const ProfilScreen = navigation => {
-  const [pseudo, setPseudo] = useState();
-  const [password, setPassword] = useState();
+  const [pseudo, setPseudo] = useState('');
+  const [password, setPassword] = useState('');
   const [image, setImage] = useState(
     'https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pngall.com%2Fwp-content%2Fuploads%2F5%2FProfile-Avatar-PNG.png&f=1&nofb=1&ipt=54410382c540772fe9f2500d35d85ff329758c284d9ae3ec37f33edd083c4233&ipo=images',
   );
@@ -58,7 +58,7 @@ const ProfilScreen = navigation => {
         />
         <View style={styles.view}>
           <Text style={styles.inputText}>
-            {/* {isHide ? password.replace(/./g, '*') : password} */}
+            {isHide ? password.replace(/./g, '*') : password}
           </Text>
           <TouchableOpacity onPress={hideAndShowPassword}>
             <Text style={styles.buttonHideShow}>👁️</Text>
