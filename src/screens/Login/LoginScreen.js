@@ -1,29 +1,17 @@
-import React, {
-  Fragment,
-  useCallback,
-  useEffect,
-  useMemo,
-  useState,
-} from 'react';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import React, {useCallback, useState} from 'react';
 import {
   SafeAreaView,
   View,
-  StyleSheet,
   Text,
-  Image,
   TextInput,
   TouchableOpacity,
-  KeyboardAvoidingView,
   Alert,
   ScrollView,
 } from 'react-native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {getData} from '../../helpers/StorageHelper';
 import styles from './LoginStyles.js';
-
-// Initialisation Navigator
-const Stack = createNativeStackNavigator();
+import {useDispatch} from 'react-redux';
+import {actions as loginActions} from '../../redux/reducers/logInReducer';
 
 // Main fonction of LoginScreen
 const LoginScreen = props => {
@@ -33,12 +21,19 @@ const LoginScreen = props => {
   const [pseudo, setPseudo] = useState('');
   const [password, setPassword] = useState('');
 
+  // Redux
+  const dispatch = useDispatch();
+  const logInRedux = useCallback(() => {
+    dispatch(loginActions.logIn());
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Check with password and login exist
   const validateForm = useCallback(async () => {
     const user = await getData('user');
 
     if (pseudo === user.username && password === user.password) {
-      navigation.navigate('Dashboard');
+      logInRedux();
     } else {
       if (pseudo === user.username) {
         Alert.alert('Mot de passe invalide');
