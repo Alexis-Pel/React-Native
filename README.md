@@ -1,7 +1,7 @@
 # Auteurs
 Pelissier Alexis | https://github.com/Alexis-Pel
 <br>
-Angel Rafael Gonzalez | https://github.com/AngelRafaelGO
+Gonzalez Angel Rafael | https://github.com/AngelRafaelGO
 <br>
 Rabiller Alexis | https://github.com/B3r4ti0n
 
