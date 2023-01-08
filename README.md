@@ -18,3 +18,6 @@ https://www.igdb.com/
 Documentation: 
 <br>
 https://api-docs.igdb.com/#about
+
+Crée avec React Native
+<a href="https://reactjs.org/" title="React"><img src="https://github.com/tomchen/stack-icons/blob/master/logos/react.svg" alt="React" width="21px" height="21px"></a><br/>
