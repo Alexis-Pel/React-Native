@@ -1,13 +1,15 @@
 import React, {useEffect, useState} from 'react';
-import {StyleSheet, View, SafeAreaView} from 'react-native';
+import {View, SafeAreaView} from 'react-native';
 import {Rating} from 'react-native-ratings';
-import {getData, storeData} from '../helpers/StorageHelper';
+import {getData, storeData} from '../../helpers/StorageHelper';
+import styles from './StarRatingStyles';
+
 const StarRating = props => {
   const [starRating, setStarRating] = useState(false);
   const [value, setValue] = useState(0);
   const {game_id} = props;
 
-  async function setDict(value) {
+  async function setDict() {
     await storeData(value, 'rating_' + game_id);
   }
 
@@ -31,11 +33,10 @@ const StarRating = props => {
   function ratingCompleted(rating) {
     setDict(rating).then(setValue(rating));
     setStarRating(true);
-    //await AsyncStorage.setItem('rating_'+game_id, rating);
   }
 
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={styles.safeArea}>
       <View style={styles.container}>
         <View style={styles.stars}>
           <Rating
@@ -51,26 +52,5 @@ const StarRating = props => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    padding: 20,
-  },
-  heading: {
-    fontSize: 24,
-    fontWeight: 'bold',
-    marginBottom: 20,
-  },
-  stars: {
-    display: 'flex',
-    flexDirection: 'row',
-  },
-  starUnselected: {
-    color: 'grey',
-  },
-});
 
 export default StarRating;

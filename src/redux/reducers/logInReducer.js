@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit';
 
-// le slice va créer le reducer et les actions pour nous
+// Slice will create our reduers and it's actions
 const slice = createSlice({
   name: 'logIn',
   initialState: {

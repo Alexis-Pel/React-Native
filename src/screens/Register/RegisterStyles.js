@@ -5,12 +5,26 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: 'fff',
   },
+
+  inscriptionTetxt: {
+    fontWeight: 'bold',
+    fontSize: 25,
+    alignSelf: 'center',
+  },
+
+  scrollView: {
+    flex: 1,
+    alignSelf: 'center',
+  },
+
   IsValid: {
     borderColor: 'darkgray',
   },
+
   passwordIsNotValid: {
     borderColor: 'red',
   },
+
   sendStyle: {
     alignSelf: 'center',
     marginTop: 50,
@@ -28,6 +42,12 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     elevation: 3,
   },
+
+  sendText: {
+    color: 'white',
+    fontWeight: 'bold',
+  },
+
   inputText: {
     backgroundColor: 'gainsboro',
     paddingStart: 15,
@@ -37,6 +57,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     marginTop: 30,
   },
+
   profilePicture: {
     marginTop: 25,
     marginBottom: 30,

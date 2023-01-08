@@ -13,7 +13,6 @@ import {
   getDataForDashboard,
   getSearchDataForDashboard,
 } from '../../apiTools/apiTools';
-
 import styles from './DashboardStyles';
 
 const Dashboard = navigation => {
@@ -37,6 +36,7 @@ const Dashboard = navigation => {
     if (search === '') {
       loadData();
     }
+
     if (search !== '') {
       const searchDataResponse = await getSearchDataForDashboard(search);
       if (searchDataResponse.length >= 1) {
@@ -46,7 +46,6 @@ const Dashboard = navigation => {
           {text: 'Fermer'},
         ]);
       }
-    } else {
     }
   };
 

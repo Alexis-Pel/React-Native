@@ -1,10 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
 import React, {useCallback, useEffect, useMemo, useState} from 'react';
 import {storeData} from '../../helpers/StorageHelper';
 import {
@@ -16,8 +9,6 @@ import {
   Alert,
   ScrollView,
 } from 'react-native';
-import {useDispatch} from 'react-redux';
-import {actions as logInActions} from '../../redux/reducers/logInReducer';
 import styles from './RegisterStyles';
 import ImagePicker from 'react-native-image-crop-picker';
 
@@ -27,17 +18,7 @@ const onPress = username =>
     text: 'OK',
   });
 
-/**
- * Register Screen Component
- * @returns {JSX.Element}
- * @constructor
- */
-
 const RegisterScreen = () => {
-  // Redux states
-  // const isLoggedInRedux = useSelector(s => s.logIn.isLoggedIn);
-  const dispatch = useDispatch();
-
   //Definition of states
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -66,7 +47,7 @@ const RegisterScreen = () => {
     ImagePicker.openPicker(options).then(upload).catch(handleError);
   }, []);
 
-  // password Validation
+  // Password Validation
   useEffect(() => {
     if (!firstlaunch) {
       if (password.length >= 3) {
@@ -80,7 +61,7 @@ const RegisterScreen = () => {
     }
   }, [password]);
 
-  // confirmpassword validation useMemo
+  // Confirm password validation useMemo
   const confirmPasswordIsValid = useMemo(() => {
     return passwordIsValid && password === confirmPassword;
   }, [confirmPassword, password, passwordIsValid]);
@@ -98,17 +79,11 @@ const RegisterScreen = () => {
       ),
         onPress(username);
     }
-  }, [passwordIsValid, confirmPasswordIsValid, username, password]);
-
-  const setLogin = useCallback(() => {
-    dispatch(logInActions.logIn());
-  }, [dispatch]);
+  }, [passwordIsValid, confirmPasswordIsValid, username, password, image]);
 
   return (
     <SafeAreaView style={styles.screen}>
-      <Text style={{fontWeight: 'bold', fontSize: 25, alignSelf: 'center'}}>
-        Inscription
-      </Text>
+      <Text style={styles.inscriptionTetxt}>Inscription</Text>
       <TouchableOpacity onPress={onPressImg}>
         <Image
           style={styles.profilePicture}
@@ -118,8 +93,7 @@ const RegisterScreen = () => {
           onPress={onPressImg}
         />
       </TouchableOpacity>
-
-      <ScrollView style={{flex: 1, alignSelf: 'center'}}>
+      <ScrollView style={styles.scrollView}>
         <TextInput
           style={[styles.inputText, styles.IsValid]}
           placeholder="Nom d'utilisateur"
@@ -148,9 +122,8 @@ const RegisterScreen = () => {
           value={confirmPassword}
           onChangeText={setConfirmPassword}
         />
-
         <TouchableOpacity style={styles.sendStyle} onPress={validateForm}>
-          <Text style={{color: 'white', fontWeight: 'bold'}}>Envoyer</Text>
+          <Text style={styles.sendText}>Envoyer</Text>
         </TouchableOpacity>
       </ScrollView>
     </SafeAreaView>

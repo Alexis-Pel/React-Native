@@ -8,8 +8,6 @@ const styles = StyleSheet.create({
     borderRadius: 10,
   },
 
-  touchableView: {},
-
   titleText: {
     fontWeight: 'bold',
     fontSize: 16,

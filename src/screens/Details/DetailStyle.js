@@ -3,7 +3,7 @@ import {StyleSheet} from 'react-native';
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: 'white',
+    backgroundColor: '#D9D9D9',
   },
 
   gameTitle: {
@@ -14,6 +14,12 @@ const styles = StyleSheet.create({
     height: 100,
     width: 200,
     marginLeft: 23,
+  },
+
+  imageView: {
+    flexDirection: 'row',
+    zIndex: 10,
+    marginTop: -100,
   },
 
   gamePicture: {
@@ -40,9 +46,8 @@ const styles = StyleSheet.create({
   },
 
   titleView: {
-    flexDirection: 'row',
-    zIndex: 10,
-    marginTop: -100,
+    flexDirection: 'column',
+    alignItems: 'center',
   },
 
   title: {
@@ -52,7 +57,6 @@ const styles = StyleSheet.create({
 
   scoreView: {
     alignSelf: 'center',
-    backgroundColor: 'white',
     borderRadius: 5,
     borderWidth: 1,
     borderColor: 'red',
@@ -64,13 +68,22 @@ const styles = StyleSheet.create({
   },
 
   ratingText: {
-    fontWeight: '800',
-    color: 'rgb(255,0,113)',
+    alignSelf: 'center',
+    backgroundColor: '#D9D9D9',
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: 'red',
+    width: '80 %',
+    height: 50,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 20,
+    marginLeft: 10,
   },
 
   votesText: {
     fontWeight: '800',
-    fontSize: 10,
+    fontSize: 14,
     color: 'rgb(255,0,113)',
   },
 
@@ -79,7 +92,7 @@ const styles = StyleSheet.create({
   },
 
   summaryText: {
-    fontWeight: '500',
+    fontWeight: '600',
     fontSize: 18,
   },
 });

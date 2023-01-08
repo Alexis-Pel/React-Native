@@ -1,13 +1,12 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
-
 import {reducer as logInReducer} from './reducers/logInReducer';
 
-// on combine nos reducers dans un reducer racine
+// Our reducers are combined in rootReducer
 const rootReducer = combineReducers({
   logIn: logInReducer,
 });
 
-// on créé le store à partir de notre reducer racine
+// The store is created from from our core reducer
 const store = configureStore({
   reducer: rootReducer,
 });

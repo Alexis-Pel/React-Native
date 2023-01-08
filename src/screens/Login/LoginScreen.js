@@ -59,12 +59,14 @@ const LoginScreen = props => {
       <ScrollView style={styles.scrollView}>
         <View style={styles.scrollViewInputs}>
           <TextInput
+            placeholderTextColor="white"
             style={styles.inputText}
             placeholder="Pseudo"
             value={pseudo}
             onChangeText={setPseudo}
           />
           <TextInput
+            placeholderTextColor="white"
             style={styles.inputText}
             placeholder="Mot de passe"
             value={password}

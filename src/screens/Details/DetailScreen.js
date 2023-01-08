@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import styles from './DetailStyle';
 import {SafeAreaView, View, Text, Image, ScrollView} from 'react-native';
 import {getDataForDetail} from '../../apiTools/apiTools';
-import StarRating from '../../components/StarRating';
+import StarRating from '../../components/starRating/StarRating';
 
 const DetailScreen = ({navigation, route}) => {
   const {id} = route.params;
@@ -32,7 +32,7 @@ const DetailScreen = ({navigation, route}) => {
             }}
             blurRadius={8}
           />
-          <View style={{flexDirection: 'row', zIndex: 10, marginTop: -100}}>
+          <View style={styles.imageView}>
             <Image
               style={styles.coverPicture}
               source={{
@@ -42,44 +42,22 @@ const DetailScreen = ({navigation, route}) => {
                   '.png',
               }}
             />
-            <View style={{flexDirection: 'column', alignItems: 'center'}}>
+            <View style={styles.titleView}>
               <Text style={styles.gameTitle} numberOfLines={5}>
                 {game.name}
               </Text>
-              <View
-                style={{
-                  alignSelf: 'center',
-                  backgroundColor: 'white',
-                  borderRadius: 5,
-                  borderWidth: 1,
-                  borderColor: 'red',
-                  width: '80 %',
-                  height: 50,
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  marginTop: 20,
-                  marginLeft: 10,
-                }}>
-                <Text
-                  style={{
-                    fontWeight: '800',
-                    color: 'rgb(255,0,113)',
-                  }}>
+              <View style={styles.ratingText}>
+                <Text style={styles.votesText}>
                   {game.total_rating.toFixed()} / 100
                 </Text>
-                <Text
-                  style={{
-                    fontWeight: '800',
-                    fontSize: 10,
-                    color: 'rgb(255,0,113)',
-                  }}>
+                <Text style={styles.votesText}>
                   {game.total_rating_count} votes
                 </Text>
               </View>
             </View>
           </View>
-          <View style={{margin: 10}}>
-            <Text style={{fontWeight: '600', fontSize: 18}}>Synopsis: </Text>
+          <View style={styles.summaryView}>
+            <Text style={styles.summaryText}>Synopsis: </Text>
             <Text style={styles.summary}>{game.summary}</Text>
           </View>
           <StarRating game_id={id} />
